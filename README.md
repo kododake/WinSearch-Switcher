@@ -1,0 +1,1 @@
+# WinSearch-Switcher
