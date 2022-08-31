@@ -1,15 +1,21 @@
 @echo off
-set /p cfm=ƒT[ƒrƒX‚Ìó‘Ô‚ğ•ÏXStart/Disable(s/d):
+cd /d %~dp0
+openfiles > nul
+if errorlevel 1 (
+    PowerShell.exe -Command Start-Process \"%~f0\" -Verb runas
+    exit
+)
+set /p cfm=ã‚µãƒ¼ãƒ“ã‚¹ã®çŠ¶æ…‹ã‚’å¤‰æ›´Start/Disable(s/d):
 if %cfm%==s (
-echo ƒT[ƒrƒX‚ğŠJn‚µ‚Ü‚µ‚½B
+echo ã‚µãƒ¼ãƒ“ã‚¹ã‚’é–‹å§‹ã—ã¾ã—ãŸã€‚
 sc config "WSearch" start= auto
 sc start WSearch
 ) else if %cfm%==d (
-echo ƒT[ƒrƒX‚ğ’â~‚µ‚Ü‚µ‚½B
+echo ã‚µãƒ¼ãƒ“ã‚¹ã‚’åœæ­¢ã—ã¾ã—ãŸã€‚
 sc stop WMPNetworkSvc
 sc stop WSearch
 sc config "WSearch" start= disabled
 ) else (
- echo ƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚µ‚½B
+ echo ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã—ãŸã€‚
   )
 pause
