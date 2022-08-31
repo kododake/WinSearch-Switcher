@@ -7,14 +7,14 @@ if errorlevel 1 (
 )
 set /p cfm=Change WindowsSearch status[enable/disable](e/d):
 if %cfm%==e (
-echo Service has been started
 sc config "WSearch" start= auto
 sc start WSearch
+echo Service has been started
 ) else if %cfm%==d (
-echo Service has been stopped.
 sc stop WMPNetworkSvc
 sc stop WSearch
 sc config "WSearch" start= disabled
+echo Service has been stopped.
 ) else (
  echo Canceled
   )
