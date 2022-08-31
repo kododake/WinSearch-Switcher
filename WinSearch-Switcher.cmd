@@ -9,11 +9,11 @@ set /p cfm=Change WindowsSearch status[enable/disable](e/d):
 if %cfm%==e (
 sc config "WSearch" start= auto
 sc start WSearch
-echo Service has been started
+echo WindowsSearch service has been started
 ) else if %cfm%==d (
 sc stop WSearch
 sc config "WSearch" start= disabled
-echo Service has been stopped.
+echo WindowsSearch service has been stopped
 ) else (
  echo Canceled
   )
