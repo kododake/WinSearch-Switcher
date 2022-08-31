@@ -11,7 +11,6 @@ sc config "WSearch" start= auto
 sc start WSearch
 echo Service has been started
 ) else if %cfm%==d (
-sc stop WMPNetworkSvc
 sc stop WSearch
 sc config "WSearch" start= disabled
 echo Service has been stopped.
