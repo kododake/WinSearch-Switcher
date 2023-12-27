@@ -11,8 +11,8 @@ sc config "WSearch" start= auto
 sc start WSearch
 echo WindowsSearch service has been started
 ) else if %cfm%==d (
-sc stop WSearch
 sc config "WSearch" start= disabled
+sc stop WSearch
 echo WindowsSearch service has been stopped
 ) else (
  echo Canceled
